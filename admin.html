@@ -4,38 +4,33 @@
 <title>Admin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{font-family:Poppins;background:#000;color:#fff;padding:40px}
-.box{max-width:420px;margin:auto;animation:fade 1s}
+body{background:#000;color:#fff;font-family:Poppins;padding:40px}
+.box{max-width:420px;margin:auto}
 input,button{width:100%;padding:10px;margin:6px 0}
 button{background:#e67e22;border:none}
-@keyframes fade{from{opacity:0}to{opacity:1}}
 </style>
 </head>
 <body>
 
-<div class="box" id="loginBox">
+<div class="box" id="login">
 <h2>Admin Login</h2>
-<input id="user" placeholder="Username">
-<input id="pass" type="password" placeholder="Password">
+<input id="u" placeholder="Username">
+<input id="p" type="password" placeholder="Password">
 <button onclick="login()">Login</button>
 <p id="msg"></p>
 </div>
 
 <div class="box" id="dash" style="display:none">
-<h2>Dashboard</h2>
-<p>Admin logged in successfully ✔</p>
+<h2>Admin Dashboard</h2>
+<p>Login successful ✔</p>
 </div>
 
 <script>
 function login(){
- const u=document.getElementById("user").value;
- const p=document.getElementById("pass").value;
- if(u==="admin" && p==="123"){
-  loginBox.style.display="none";
+ if(u.value==="admin" && p.value==="123"){
+  login.style.display="none";
   dash.style.display="block";
- } else {
-  msg.innerText="Wrong login details";
- }
+ } else msg.innerText="Invalid login";
 }
 </script>
 

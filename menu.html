@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Menu</title>
+<title>Menu | Wok Kitchen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body{font-family:Poppins;background:#111;color:#fff;padding:40px}
-.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#1c1c1c;padding:20px;border-radius:12px;animation:fade .8s}
-@keyframes fade{from{opacity:0;transform:scale(.95)}to{opacity:1}}
+body{background:#111;color:#fff;font-family:Poppins;padding:40px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.card{background:#1c1c1c;padding:25px;border-radius:12px;transition:.4s}
+.card:hover{transform:translateY(-6px)}
+a{color:#fff;text-decoration:none}
 </style>
 </head>
 <body>
 
 <a href="index.html">← Home</a>
 <h1>Menu</h1>
+
 <div class="menu" id="menu"></div>
 
 <script>
-const menu = JSON.parse(localStorage.getItem("menu")) || [
+const items = JSON.parse(localStorage.getItem("menu")) || [
 {name:"Chicken Fried Rice",price:1250},
 {name:"Szechuan Noodles",price:1450},
 {name:"Sweet & Sour Chicken",price:1550},
@@ -29,9 +31,11 @@ const menu = JSON.parse(localStorage.getItem("menu")) || [
 {name:"Thai Milk Tea",price:550},
 {name:"Mango Smoothie",price:650}
 ];
-localStorage.setItem("menu",JSON.stringify(menu));
-menu.forEach(m=>{
-menuDiv.innerHTML+=`<div class="card"><b>${m.name}</b><br>LKR ${m.price}</div>`;
+localStorage.setItem("menu",JSON.stringify(items));
+
+const m=document.getElementById("menu");
+items.forEach(i=>{
+m.innerHTML+=`<div class="card"><b>${i.name}</b><br>LKR ${i.price}</div>`;
 });
 </script>
 
