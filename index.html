@@ -1,40 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Wok Kitchen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+
 <style>
-body{margin:0;font-family:Poppins;background:#000;color:#fff}
-.hero{position:relative;height:100vh}
-video{width:100%;height:100%;object-fit:cover}
-.overlay{position:absolute;inset:0;background:rgba(0,0,0,.65)}
-.center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;animation:fade 2s}
-h1{font-size:4rem}
-nav{position:absolute;top:20px;right:20px}
-nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:600}
-@keyframes fade{from{opacity:0;transform:translateY(30px)}to{opacity:1}}
+body {
+  margin: 0;
+  font-family: Poppins, sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* VIDEO */
+.hero video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 1;
+  pointer-events: none; /* ✅ IMPORTANT */
+}
+
+/* NAVIGATION */
+nav {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 3; /* ✅ ABOVE OVERLAY */
+}
+
+nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* CENTER TEXT */
+.center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 2;
+  animation: fadeUp 1.8s ease;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(30px);}
+  to {opacity: 1; transform: translateY(0);}
+}
 </style>
 </head>
+
 <body>
 
 <div class="hero">
-<video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-chef-preparing-food-7132/1080p.mp4">
-</video>
-<div class="overlay"></div>
-<nav>
-<a href="story.html">Story</a>
-<a href="menu.html">Menu</a>
-<a href="order.html">Order</a>
-<a href="admin.html">Admin</a>
-</nav>
-<div class="center">
-<div>
-<h1>Wok Kitchen</h1>
-<p>Modern Asian Street Food</p>
-</div>
-</div>
+
+  <!-- BACKGROUND VIDEO -->
+  <video autoplay muted loop playsinline>
+    <source src="https://cdn.coverr.co/videos/coverr-stir-frying-food-6186/1080p.mp4" type="video/mp4">
+  </video>
+
+  <div class="overlay"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="story.html">Story</a>
+    <a href="menu.html">Menu</a>
+    <a href="order.html">Order</a>
+    <a href="admin.html">Admin</a>
+  </nav>
+
+  <!-- CENTER CONTENT -->
+  <div class="center">
+    <div>
+      <h1>Wok Kitchen</h1>
+      <p>Modern Asian Street Food</p>
+    </div>
+  </div>
+
 </div>
 
 </body>
