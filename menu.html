@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{font-family:Poppins;background:#111;color:#fff;padding:40px}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#1c1c1c;padding:20px;border-radius:12px;animation:fade .8s}
+@keyframes fade{from{opacity:0;transform:scale(.95)}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<a href="index.html">← Home</a>
+<h1>Menu</h1>
+<div class="menu" id="menu"></div>
+
+<script>
+const menu = JSON.parse(localStorage.getItem("menu")) || [
+{name:"Chicken Fried Rice",price:1250},
+{name:"Szechuan Noodles",price:1450},
+{name:"Sweet & Sour Chicken",price:1550},
+{name:"Kung Pao Chicken",price:1600},
+{name:"Beef Chow Mein",price:1650},
+{name:"Spicy Shrimp Wok",price:1850},
+{name:"Vegetable Pad Thai",price:1300},
+{name:"Roasted Duck",price:2200},
+{name:"Thai Milk Tea",price:550},
+{name:"Mango Smoothie",price:650}
+];
+localStorage.setItem("menu",JSON.stringify(menu));
+menu.forEach(m=>{
+menuDiv.innerHTML+=`<div class="card"><b>${m.name}</b><br>LKR ${m.price}</div>`;
+});
+</script>
+
+</body>
+</html>
